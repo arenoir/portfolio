@@ -4,6 +4,8 @@ title:  "CARP changes in FreeBSD 10-Release"
 date:   2014-02-12 11:12:34
 ---
 
+**UPDATE the [FreeBSD Handbook](http://www.freebsd.org/doc/handbook/carp.html) has been updated.**
+
 Here is a quick post regarding my struggle with CARP while upgrading a server from FreeBSD-9.2 to FreeBSD-10.
 
 The first problem I encountered was loading the CARP kernel module. It turns out it has been renamed `carp.ko` from `if_carp.ko`.
