@@ -33,11 +33,9 @@ class DownloadTicket
   end
 
 end
-```
-  
 
 
-```
+
 #app/controllers/protected_images_controller.rb
 class ProtectedImagesController < ApplicationController
   # sets current_user and auth_token throws exception when not authorized.
@@ -54,11 +52,9 @@ class ProtectedImagesController < ApplicationController
   end
   
 end
-```
-  
 
 
-```
+
 #app/controllers/download_controller.rb
 class DownloadController < ApplicationController
   before_filter :authenticate!
@@ -85,11 +81,9 @@ class DownloadController < ApplicationController
   end
   
 end
-```  
-  
 
 
-```
+
 #app/serializer/protected_image_serializer.rb
 class ProtectedImageSerializer < ActiveModel::Serializer
   
