@@ -32,7 +32,7 @@ class DownloadTicket
   end
 
 end
-```
+```  
 
 ###app/controllers/protected_images_controller.rb
 ```
@@ -51,7 +51,7 @@ class ProtectedImagesController < ApplicationController
   end
   
 end
-```
+```  
 
 ###app/controllers/download_controller.rb
 ```
@@ -80,9 +80,9 @@ class DownloadController < ApplicationController
   end
   
 end
-```
-
-
+```  
+  
+  
 ###app/serializer/protected_image_serializer.rb
 ```
 class ProtectedImageSerializer < ActiveModel::Serializer
