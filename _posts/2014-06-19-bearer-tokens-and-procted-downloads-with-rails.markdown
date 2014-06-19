@@ -11,9 +11,9 @@ How do you authorize images? You can't add headers to img tags.  I could add the
 My solution was to create essentially another token and call it a `download_ticket`.  This ticket is the `auth_token` but encrypted.  So ember makes a request for all `protected_images` rails serializes the protected_image attributes and creates a `download_ticket` for each. Ember then makes the request for the image file including the `download_ticket` in the query params. Rails decrypts the `download_token` and verifies the `auth_token` is still valid and streams the file. 
 
 
-Here is the relevant rails code.
-<br>
-<br>
+Here is the relevant rails code.  
+
+
 ```
 #app/models/download_ticket.rb
 class DownloadTicket 
@@ -34,8 +34,9 @@ class DownloadTicket
 
 end
 ```
-<br>
-<br>
+  
+
+
 ```
 #app/controllers/protected_images_controller.rb
 class ProtectedImagesController < ApplicationController
@@ -53,9 +54,10 @@ class ProtectedImagesController < ApplicationController
   end
   
 end
-```  
-<br>
-<br>
+```
+  
+
+
 ```
 #app/controllers/download_controller.rb
 class DownloadController < ApplicationController
@@ -84,8 +86,9 @@ class DownloadController < ApplicationController
   
 end
 ```  
-<br>
-<br>
+  
+
+
 ```
 #app/serializer/protected_image_serializer.rb
 class ProtectedImageSerializer < ActiveModel::Serializer
