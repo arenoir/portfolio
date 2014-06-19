@@ -13,8 +13,8 @@ My solution was to create essentially another token and call it a `download_tick
 
 Here is the relevant rails code.
 
+###app/models/download_ticket.rb
 ```
-#app/models/download_ticket.rb
 class DownloadTicket 
   attr_reader :encryptor
 
@@ -34,8 +34,8 @@ class DownloadTicket
 end
 ```
 
+###app/controllers/protected_images_controller.rb
 ```
-#app/controllers/protected_images_controller.rb
 class ProtectedImagesController < ApplicationController
   # sets current_user and auth_token throws exception when not authorized.
   before_filter :authenticate_user_from_token!
@@ -53,8 +53,8 @@ class ProtectedImagesController < ApplicationController
 end
 ```
 
+###app/controllers/download_controller.rb
 ```
-#app/controllers/download_controller.rb
 class DownloadController < ApplicationController
   before_filter :authenticate!
   
@@ -82,8 +82,9 @@ class DownloadController < ApplicationController
 end
 ```
 
+
+###app/serializer/protected_image_serializer.rb
 ```
-#app/serializer/protected_image_serializer.rb
 class ProtectedImageSerializer < ActiveModel::Serializer
   
   attributes(
