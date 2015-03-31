@@ -8,7 +8,7 @@ I am developing a long running javascript application using ember.js.  Best prac
 
 How do you authorize images? You can't add headers to img tags.  I could add the `auth_token` to the url in a query string but that would not be ideal. Not only would that fill my server logs with auth tokens, it would make it very easy for a user to accidentally send their token to someone. For example a user thinks they can send the img url to someone in an email.
 
-My solution was to create essentially another token and call it a `download_ticket`.  This ticket is the `auth_token` but encrypted.  So ember makes a request for all `protected_images` rails serializes the protected_image attributes and creates a `download_ticket` for each. Ember then makes the request for the image file including the `download_ticket` in the query params. Rails decrypts the `download_token` and verifies the `auth_token` is still valid and streams the file. 
+My solution was to create essentially another token and call it a `download_ticket`.  This ticket is the `auth_token` but encrypted.  So ember makes a request for all `protected_images` rails serializes the `protected_image` attributes and creates a `download_ticket` for each. Ember then makes the request for the image file including the `download_ticket` in the query params. Rails decrypts the `download_token` and verifies the `auth_token` is still valid and streams the file. 
 
 
 Here is the relevant rails code.  
