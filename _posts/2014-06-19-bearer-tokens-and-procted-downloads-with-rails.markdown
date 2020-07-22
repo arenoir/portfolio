@@ -14,9 +14,9 @@ My solution was to create essentially another token and call it a `download_tick
 Here is the relevant rails code.  
 
 
-```
+```ruby
 #app/models/download_ticket.rb
-class DownloadTicket 
+class DownloadTicket
   attr_reader :encryptor
 
   def initialize(id)
@@ -67,11 +67,11 @@ class DownloadController < ApplicationController
   
   def authenticate!
     ticket = params[:download_ticket]
-    
+
     raise unless ticket
-    
+
     token = DownloadTicket.new(params[:id]).tokenize(ticket)
-    
+
     # sets current_user and auth_token throws exception when not authorized.
     authenticate_user_from_token(token)
   end
@@ -88,8 +88,8 @@ end
 class ProtectedImageSerializer < ActiveModel::Serializer
   
   attributes(
-    :id, 
-    :user_id, 
+    :id,
+    :user_id,
     :title,
     :filename,
     :description,
@@ -103,5 +103,3 @@ class ProtectedImageSerializer < ActiveModel::Serializer
 end
 
 ```
-
-

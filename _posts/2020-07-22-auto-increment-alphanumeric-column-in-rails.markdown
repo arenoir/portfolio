@@ -10,11 +10,11 @@ I have been migrating some applications from integer primary keys to uuid primar
 
 The solution to this problem is pretty trivial. Add a column for vanity identification.
 
-In these applications I had already implemented such a scheme as they were multi tenanted.  So company A and company B could both have an invoice with the `display_id` of `1`.
+In these applications I had already implemented such a scheme as they were multi tenanted.  So company A and company B could both have an invoice with the `display_id` of say `1`.
 
 However there was a new requirement. The `display_id` needed to be alphanumeric and auto increment. By utilizing the sql `CAST` function I was able to select records with a numeric `display_id` and use that value to auto increment.
 
-```
+```ruby
 #app/models/concerns/display_id_concern.rb
 module DisplayIdConcern
   extend ActiveSupport::Concern

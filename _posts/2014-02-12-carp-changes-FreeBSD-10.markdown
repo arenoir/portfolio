@@ -12,7 +12,7 @@ The first problem I encountered was loading the CARP kernel module. It turns out
 
 So enable carp by adding the following line to `/boot/loader.conf`
 
-```
+```bash
 carp_load="YES"
 ```
 
@@ -22,7 +22,7 @@ You no longer define carp interfaces with `ifconfig_carp`. Instead you create a 
 
 Here is an example of a working `rc.conf`
 
-```
+```bash
 ifconfig_em1="inet 38.111.159.78/32"
 ifconfig_em2="inet 38.111.159.78/32"
 
@@ -41,7 +41,7 @@ The alias number must be sequential, skipping numbers will result in the interfa
 
 Alternatively we could setup the interfaces using `ifconfig_<interface>_aliases` property.
 
-```
+```bash
 ifconfig_em1_aliases="\
   vhid 12 advskew 210 pass RD0B4OBZ 192.168.1.11/32 \
   vhid 12 advskew 210 pass RD0B4OBZ 192.168.1.12/32 \
