@@ -167,4 +167,9 @@ a:visited { color: #a0a; }
   color: #fff;
   padding: 1em;
   width: 50%;
+  text-decoration: none;
 } 
+
+.ally-sign:hover {
+  text-decoration: none;
+}
